@@ -53,7 +53,7 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
   }
 
   function submitTask(e) {
-    e.preventDefault();
+    e.preventDefault(); 
     const clean = title.trim();
     if (!clean) return;
     onAdd(clean, category, dueDate);
@@ -73,7 +73,7 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
       color: newCatColor.bg,
       cardBg: newCatColor.cardBg,
       text: newCatColor.text,
-      light: `${newCatColor.cardBg} ${newCatColor.text}` 
+      light: `${newCatColor.cardBg} ${newCatColor.text}`
     };
 
     onAddCategory(newCategory);
@@ -93,7 +93,7 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent dir="rtl" className="sm:max-w-[460px] rounded-[2rem] p-8 border-0 shadow-2xl bg-white/95 backdrop-blur-xl transition-all duration-300">
+      <DialogContent dir="rtl" className="sm:max-w-[460px] rounded-[2rem] p-8 border-0 shadow-2xl bg-white/95 backdrop-blur-xl transition-all duration-300 max-h-[90vh] overflow-y-auto">
         <DialogHeader className="text-right pb-2">
           <DialogTitle className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-violet-600 to-fuchsia-600">
             {isCreatingCategory ? "קטגוריה חדשה" : "יצירת משימה"}
@@ -109,7 +109,7 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
                 onChange={(e) => setNewCatName(e.target.value)}
                 placeholder="לדוגמה: כושר, קניות, פרוייקט..."
                 className="h-14 rounded-2xl border-slate-200 bg-slate-50 px-5 text-lg focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500"
-                autoFocus
+
               />
             </div>
 
@@ -164,7 +164,7 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="לדוגמה: לסיים את המצגת..."
                 className="h-14 rounded-2xl border-slate-200 bg-slate-50 px-5 text-lg transition-all focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500"
-                autoFocus
+
               />
             </div>
 
@@ -175,7 +175,6 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
                   type="date"
                   value={dueDate}
                   onChange={(e) => setDueDate(e.target.value)}
-                  onClick={(e) => e.target.showPicker()}
                   className="h-14 rounded-2xl border-slate-200 bg-slate-50 px-5 pl-12 text-lg focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500 cursor-pointer w-full text-slate-600"
                 />
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none text-violet-500 transition-transform group-hover:scale-110">
