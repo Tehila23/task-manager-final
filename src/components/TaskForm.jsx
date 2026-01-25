@@ -86,7 +86,7 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
     <Dialog open={open} onOpenChange={(val) => { setOpen(val); if(!val) resetForm(); }}>
       <DialogTrigger asChild>
         <Button 
-          className="h-10 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 text-white shadow-lg shadow-violet-200 transition-all hover:scale-105 hover:shadow-violet-300 hover:from-violet-700 hover:to-fuchsia-700 active:scale-95"
+          className="h-10 w-full sm:w-auto rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-5 text-white shadow-lg shadow-violet-200 transition-all hover:scale-105 hover:shadow-violet-300 hover:from-violet-700 hover:to-fuchsia-700 active:scale-95"
         >
           <Plus className="h-5 w-5" />
           <span className="ms-2 font-bold tracking-wide">משימה חדשה</span>
@@ -109,7 +109,6 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
                 onChange={(e) => setNewCatName(e.target.value)}
                 placeholder="לדוגמה: כושר, קניות, פרוייקט..."
                 className="h-14 rounded-2xl border-slate-200 bg-slate-50 px-5 text-lg focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500"
-
               />
             </div>
 
@@ -164,7 +163,6 @@ export default function TaskForm({ onAdd, onAddCategory, categories }) {
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="לדוגמה: לסיים את המצגת..."
                 className="h-14 rounded-2xl border-slate-200 bg-slate-50 px-5 text-lg transition-all focus:bg-white focus:ring-4 focus:ring-violet-500/20 focus:border-violet-500"
-
               />
             </div>
 

@@ -10,7 +10,7 @@ import { CheckCircle2, Circle, LayoutGrid, List, PartyPopper } from "lucide-reac
 import { Button } from "@/components/ui/button";
 
 const STORAGE_KEY_TASKS = "tasks_v4";
-const STORAGE_KEY_CATS = "categories_v2"; 
+const STORAGE_KEY_CATS = "categories_v2";
 
 const DEFAULT_CATEGORIES = [
   { id: "work", label: "עבודה", color: "bg-blue-500", cardBg: "bg-blue-50", text: "text-blue-700", light: "bg-blue-50 text-blue-700" },
@@ -188,36 +188,37 @@ export default function App() {
               </Badge>
             </div>
           </div>
-
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 order-2 lg:order-1">
-              <TaskForm onAdd={handleAddTask} onAddCategory={handleAddCategory} categories={categories} />
-              <div className="h-10 w-px bg-slate-200 hidden sm:block mx-1"></div>
-              <FilterBar value={filter} onChange={setFilter} />
-              <div className="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => setIsGridView(false)}
-                  className={`h-8 w-8 p-0 rounded-lg ${!isGridView ? 'bg-white shadow-sm text-violet-600' : 'text-slate-400'}`}
-                >
-                  <List className="h-4 w-4" />
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => setIsGridView(true)}
-                  className={`h-8 w-8 p-0 rounded-lg ${isGridView ? 'bg-white shadow-sm text-violet-600' : 'text-slate-400'}`}
-                >
-                  <LayoutGrid className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            <div className="flex-1 w-full order-1 lg:order-2">
-              <SearchBar query={query} onChange={setQuery} />
-            </div>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+             
+             <div className="w-full sm:w-auto order-1">
+               <TaskForm onAdd={handleAddTask} onAddCategory={handleAddCategory} categories={categories} />
+             </div>
+             <div className="w-full sm:flex-1 sm:mx-4 order-2 sm:order-2">
+               <SearchBar query={query} onChange={setQuery} />
+             </div>
+             <div className="flex items-center gap-2 order-3 sm:order-3 w-full sm:w-auto justify-start">
+                <FilterBar value={filter} onChange={setFilter} />
+                <div className="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200 shrink-0">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => setIsGridView(false)}
+                    className={`h-8 w-8 p-0 rounded-lg ${!isGridView ? 'bg-white shadow-sm text-violet-600' : 'text-slate-400'}`}
+                  >
+                    <List className="h-4 w-4" />
+                  </Button>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => setIsGridView(true)}
+                    className={`h-8 w-8 p-0 rounded-lg ${isGridView ? 'bg-white shadow-sm text-violet-600' : 'text-slate-400'}`}
+                  >
+                    <LayoutGrid className="h-4 w-4" />
+                  </Button>
+                </div>
+             </div>
           </div>
+
         </CardHeader>
 
         <CardContent className="flex-1 p-0 bg-slate-50/50">
